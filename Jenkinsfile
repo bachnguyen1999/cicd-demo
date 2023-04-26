@@ -1,8 +1,15 @@
 node {
-  def image
-   stage ('checkout SCM') {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/bachnguyen1999/cicd-demo.git']]])      
-        }
+    stage ("Checkout SCM") {
+        checkout([$class: 'GitSCM',
+            branches: [[name: '*/main' ]],
+            extensions: scm.extensions,
+            userRemoteConfigs: [[
+                url: 'git@github.com:bachnguyen1999/cicd-gke.git',
+                credentialsId: 'github-key'
+                    ]]
+            ])    
+            }
+
    
    stage ('Maven build') {
          def mvnHome = tool name: 'maven', type: 'maven'
