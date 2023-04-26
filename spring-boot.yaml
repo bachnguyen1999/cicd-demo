@@ -13,7 +13,7 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-      - name: spring-boot-app
+      - name: springboot
         image: gcr.io/terraform-labs-infras/springboot:4
         imagePullPolicy: Always
         ports:
