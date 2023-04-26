@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: gcr.io/terraform-labs-infras/springboot:2
+        image: gcr.io/terraform-labs-infras/springboot:4
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
