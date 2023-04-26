@@ -21,8 +21,8 @@ node {
         }
     stage ('Push image to gcr') {
             sh "gcloud auth configure-docker"
-            sh "docker tag terraform-labs-infras/springboot-demo:${BUILD_NUMBER} gcr.io/terraform-labs-infras/springboot-demo:${BUILD_NUMBER}"
-            sh "docker push gcr.io/terraform-labs-infras/springboot-demo:${BUILD_NUMBER}"
+            sh "docker tag terraform-labs-infras/springboot:${BUILD_NUMBER} gcr.io/terraform-labs-infras/springboot:${BUILD_NUMBER}"
+            sh "docker push gcr.io/terraform-labs-infras/springboot:${BUILD_NUMBER}"
     }    
     stage('Update GIT') {
         script {
