@@ -32,7 +32,7 @@ node {
                     def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                     sh "git config user.email bachtcdn@gmail.com"
                     sh "git config user.name bachnguyen1999"
-                    sh "sed -i 's+<terraform-labs-infras>/springboot.*+<terraform-labs-infras>/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
+                    sh "sed -i 's+terraform-labs-infras/springboot.*+terraform-labs-infras/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
                     sh "git add ."
                     sh "git commit -m 'jenkinsbuild: ${env.BUILD_NUMBER}'"
                     sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/cicd-demo.git HEAD:main"
